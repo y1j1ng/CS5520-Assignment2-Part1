@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../Components/Input";
+import StyledButton from "../Components/StyledButton";
 
 export default function Start({
   email,
@@ -10,6 +11,12 @@ export default function Start({
 }) {
   const [emailError, setEmailError] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [isEntered, setIsEntered] = useState(false);
+
+  useEffect(() => {
+    // Check if both email and phone number fields are empty
+    setIsEntered(email || phoneNumber ? true : false);
+  }, [email, phoneNumber]);
 
   function changeEmailHandler(changedEmail) {
     setEmail(changedEmail);
@@ -21,34 +28,35 @@ export default function Start({
     setPhoneNumberError(""); // Clear error when phone number changes
   }
 
-  // function validateInputs() {
-  //   // Validate name
-  //   const isEmailValid = email.length > 1;
-  //   if (!isEmailValid) {
-  //     setEmailError("Please enter a valid email address");
-  //   }
+  function validateInputs() {
+    // Validate name
+    const isEmailValid = email.length > 1;
+    if (!isEmailValid) {
+      setEmailError("Please enter a valid email address");
+    }
 
-  //   // Validate phone number
-  //   const isPhoneNumberValid = /^[0-9]{10}$/.test(phoneNumber);
-  //   if (!isPhoneNumberValid) {
-  //     setPhoneNumberError("Please enter a valid phone number");
-  //   }
+    // Validate phone number
+    const isPhoneNumberValid = /^[0-9]{10}$/.test(phoneNumber);
+    if (!isPhoneNumberValid) {
+      setPhoneNumberError("Please enter a valid phone number");
+    }
 
-  //   // Check if both inputs are valid
-  //   if (isEmailValid && isPhoneNumberValid) {
-  //     // confirmHandler();
-  //     console.log("valid inputs");
-  //   }
-  // }
+    // Check if both inputs are valid
+    if (isEmailValid && isPhoneNumberValid) {
+      // confirmHandler();
+      console.log("valid inputs");
+    }
+  }
 
-  // function confirmHandler() {}
+  function confirmHandler() {}
 
-  // function resetHandler() {
-  //   setEmail("");
-  //   setPhoneNumber("");
-  //   setEmailError("");
-  //   setPhoneNumberError("");
-  // }
+  function resetHandler() {
+    setEmail("");
+    setPhoneNumber("");
+    setEmailError("");
+    setPhoneNumberError("");
+    setIsEntered(false);
+  }
 
   return (
     <View style={styles.container}>
@@ -65,17 +73,17 @@ export default function Start({
         error={phoneNumberError}
       />
 
-      {/* <View style={styles.buttonsContainer}>
+      <View style={styles.buttonsContainer}>
         <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} />
         <View style={styles.buttonView}>
           <Button
             title="Confirm"
             onPress={validateInputs}
-            color={isChecked ? "blue" : "white"}
-            disabled={!isChecked}
+            color={isEntered ? "purple" : "white"}
+            disabled={!isEntered}
           />
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }
@@ -86,6 +94,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  // buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
-  // buttonView: { width: "40%", margin: 5 },
+  buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
+  buttonView: { margin: 5 },
 });
