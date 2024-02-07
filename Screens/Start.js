@@ -48,7 +48,7 @@ export default function Start({
     }
   }
 
-  function confirmHandler() {}
+  function startHandler() {}
 
   function resetHandler() {
     setEmail("");
@@ -77,7 +77,7 @@ export default function Start({
         <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} />
         <View style={styles.buttonView}>
           <Button
-            title="Confirm"
+            title="Start"
             onPress={validateInputs}
             color={isEntered ? "purple" : "white"}
             disabled={!isEntered}
