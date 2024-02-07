@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { useState } from "react";
 import Start from "./Screens/Start";
+import AllActivities from "./Screens/AllActivities";
+import AddAnActivity from "./Screens/AddAnActivity";
 
 export default function App() {
   const [email, setEmail] = useState("");
@@ -9,13 +11,14 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" />
       <Start
         email={email}
         setEmail={setEmail}
         phoneNumber={phoneNumber}
         setPhoneNumber={setPhoneNumber}
-      />
+      /> */}
+      <AddAnActivity />
     </SafeAreaView>
   );
 }
