@@ -90,10 +90,14 @@ export default function Start({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    //   flex: 1,
+    //justifyContent: "center",
+    //   alignItems: "center",
   },
-  buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
-  buttonView: { margin: 5 },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    margin: 10,
+  },
+  // buttonView: { margin: 5 },
 });

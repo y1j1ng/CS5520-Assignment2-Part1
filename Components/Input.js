@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
   },
-  errorText: {
-    color: Color.text,
-    margin: 3,
-  },
+  // errorText: {
+  //   color: Color.text,
+  //   margin: 3,
+  // },
 });
