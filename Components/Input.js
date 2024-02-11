@@ -2,7 +2,13 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import React from "react";
 import { Color } from "../Helpers/Color";
 
-export default function Input({ label, value, onChangeText, error }) {
+export default function Input({
+  label,
+  value,
+  onChangeText,
+  onPressIn,
+  error,
+}) {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
@@ -10,6 +16,7 @@ export default function Input({ label, value, onChangeText, error }) {
         style={styles.input}
         value={value}
         onChangeText={onChangeText}
+        onPressIn={onPressIn}
       />
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
