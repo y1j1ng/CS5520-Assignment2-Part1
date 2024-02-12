@@ -1,14 +1,16 @@
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DropDownBox from "../Components/DropDownBox";
 import Input from "../Components/Input";
 import DatePicker from "../Components/DatePicker";
 import StyledButton from "../Components/StyledButton";
+import { EntriesContext } from "../App";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
   const [activity, setActivity] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
+  const { entries, setEntries } = useContext(EntriesContext);
 
   const durationAlert = () =>
     Alert.alert(
@@ -38,17 +40,31 @@ export default function AddAnActivity() {
       ]
     );
 
+  function updateEntries() {
+    const newEntry = {
+      id: Math.random(),
+      activity: activity,
+      duration: parseInt(duration),
+      date: selectedDate,
+    };
+    setEntries(() => [...entries, newEntry]);
+  }
+
   function validateInputs() {
-    console.log(activity);
-    console.log(selectedDate);
     // Validate activity and date
-    if (activity.length === 0 || selectedDate == null) {
+    const isActivityDateEmpty = activity.length === 0 || selectedDate == null;
+    if (isActivityDateEmpty) {
       emptySubmissionAlert();
     }
 
     // Validate duration
-    if (!/^\d+$/.test(duration)) {
+    const isDurationValid = /^\d+$/.test(duration); // if true, means duration is non-negative number
+    if (!isDurationValid) {
       durationAlert();
+    }
+
+    if (!isActivityDateEmpty && isDurationValid) {
+      updateEntries();
     }
   }
 

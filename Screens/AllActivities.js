@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import ActivityItem from "../Components/ActivityItem";
+import ActivitiesList from "../Components/ActivitiesList";
 
 export default function AllActivities() {
   return (
     <View>
-      <ActivityItem></ActivityItem>
+      <ActivitiesList />
     </View>
   );
 }
