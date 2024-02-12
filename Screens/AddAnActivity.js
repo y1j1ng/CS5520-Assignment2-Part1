@@ -43,11 +43,15 @@ export default function AddAnActivity() {
     );
 
   function updateEntries() {
+    const isSpecial =
+      (activity === "Running" || activity === "Weights") &&
+      parseInt(duration) > 60;
     const newEntry = {
       id: Math.random(),
       activity: activity,
       duration: parseInt(duration),
       date: selectedDate,
+      special: isSpecial, // Add special flag
     };
     setEntries(() => [...entries, newEntry]);
   }

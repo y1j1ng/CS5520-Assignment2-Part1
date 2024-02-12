@@ -11,6 +11,7 @@ export default function ActivitiesList() {
       activity={item.activity}
       duration={item.duration}
       date={item.date}
+      special={item.special}
     />
   );
 

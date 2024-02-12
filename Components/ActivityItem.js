@@ -2,13 +2,19 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { convertDateToString } from "../Helpers/Helper";
 
-export default function ActivityItem({ activity, duration, date }) {
+export default function ActivityItem({ activity, duration, date, special }) {
   return (
     <View style={styles.container}>
       <Text style={styles.activity}>{activity}</Text>
-      {/* {duration > 60 && (activity == "Running" || activity == "Weights")} */}
       <View style={styles.rightSection}>
-        <Image style={styles.image} source={require("../assets/warning.png")} />
+        {special && (
+          <View style={styles.imageView}>
+            <Image
+              source={require("../assets/warning.png")}
+              style={styles.image}
+            />
+          </View>
+        )}
         <Text style={styles.boxText}>{convertDateToString(date)}</Text>
         <Text style={styles.boxText}>{duration} min</Text>
       </View>
@@ -18,8 +24,9 @@ export default function ActivityItem({ activity, duration, date }) {
 
 const styles = StyleSheet.create({
   activity: {
-    textAlign: "center",
-    fontSize: 20,
+    flex: 1,
+    textAlign: "left",
+    fontSize: 18,
     fontWeight: "bold",
     color: "thistle",
     padding: 5,
@@ -29,7 +36,7 @@ const styles = StyleSheet.create({
   },
   boxText: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#483285",
     backgroundColor: "white",
@@ -49,6 +56,10 @@ const styles = StyleSheet.create({
   image: {
     height: 25,
     width: 25,
+  },
+  imageView: {
+    alignItems: "center",
+    justifyContent: "center",
     margin: 5,
   },
   rightSection: {
