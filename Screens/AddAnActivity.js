@@ -42,7 +42,7 @@ export default function AddAnActivity() {
     console.log(activity);
     console.log(selectedDate);
     // Validate activity
-    if (activity.length !== 1 || selectedDate == null) {
+    if (activity.length === 0 || selectedDate == null) {
       emptySubmissionAlert();
     }
 
@@ -62,7 +62,13 @@ export default function AddAnActivity() {
 
   return (
     <View>
-      <DropDownBox label="Activity *" value={activity} setValue={setActivity} />
+      <View style={styles.dropDownBox}>
+        <DropDownBox
+          label="Activity *"
+          value={activity}
+          setValue={setActivity}
+        />
+      </View>
       <Input
         label="Duration (min) *"
         value={duration}
@@ -84,6 +90,9 @@ const styles = StyleSheet.create({
     //   flex: 1,
     //justifyContent: "center",
     //   alignItems: "center",
+  },
+  dropDownBox: {
+    zIndex: 1000,
   },
   buttonsContainer: {
     flexDirection: "row",
