@@ -8,7 +8,7 @@ import { EntriesContext } from "../App";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
-  const [activity, setActivity] = useState([]);
+  const [activity, setActivity] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const { entries, setEntries } = useContext(EntriesContext);
 

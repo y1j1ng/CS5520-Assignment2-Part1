@@ -5,8 +5,13 @@ import { EntriesContext } from "../App";
 
 export default function ActivitiesList() {
   const { entries, setEntries } = useContext(EntriesContext);
+
   const renderItem = ({ item }) => (
-    <Text>{`Activity: ${item.activity}, Duration: ${item.duration}, Date: ${item.date}`}</Text>
+    <ActivityItem
+      activity={item.activity}
+      duration={item.duration}
+      date={item.date}
+    />
   );
 
   return (

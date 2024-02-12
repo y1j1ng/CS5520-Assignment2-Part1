@@ -5,13 +5,13 @@ import DropDownPicker from "react-native-dropdown-picker";
 export default function DropDownBox({ label, value, setValue }) {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
-    { label: "Walking", value: "walking" },
-    { label: "Running", value: "running" },
-    { label: "Swimming", value: "swimming" },
-    { label: "Weights", value: "weights" },
-    { label: "Yoga", value: "yoga" },
-    { label: "Cycling", value: "cycling" },
-    { label: "Hiking", value: "hiking" },
+    "Walking",
+    "Running",
+    "Swimming",
+    "Weights",
+    "Yoga",
+    "Cycling",
+    "Hiking",
   ]);
 
   return (
@@ -20,7 +20,7 @@ export default function DropDownBox({ label, value, setValue }) {
       <DropDownPicker
         open={open}
         value={value}
-        items={items}
+        items={items.map((item) => ({ label: item, value: item }))}
         setOpen={setOpen}
         setValue={setValue}
         setItems={setItems}

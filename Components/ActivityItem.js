@@ -1,15 +1,16 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { convertDateToString } from "../Helpers/Helper";
 
-export default function ActivityItem() {
+export default function ActivityItem({ activity, duration, date }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.activity}>Activity</Text>
+      <Text style={styles.activity}>{activity}</Text>
       {/* {duration > 60 && (activity == "Running" || activity == "Weights")} */}
       <View style={styles.rightSection}>
         <Image style={styles.image} source={require("../assets/warning.png")} />
-        <Text style={styles.boxText}>Date</Text>
-        <Text style={styles.boxText}>Duration min</Text>
+        <Text style={styles.boxText}>{convertDateToString(date)}</Text>
+        <Text style={styles.boxText}>{duration} min</Text>
       </View>
     </View>
   );
