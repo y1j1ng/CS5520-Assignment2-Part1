@@ -44,8 +44,9 @@ export default function Start({ navigation }) {
     }
   }
 
+  // After validate inputs, navigate to AllActivities
   function startHandler() {
-    navigation.navigate("AllActivities");
+    navigation.navigate("TabNavigator");
   }
 
   function resetHandler() {
