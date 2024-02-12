@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Input from "./Input";
 
-export default function DatePicker() {
+export default function DatePicker({ onDateChange }) {
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
   const [dateString, setDateString] = useState("");
@@ -34,15 +34,15 @@ export default function DatePicker() {
     return days[dayOfWeek];
   }
 
-  function convertDateToString() {
+  function convertDateToString(selectedDate) {
     // Get the day of the week as a number
-    const dayOfWeek = date.getDay();
+    const dayOfWeek = selectedDate.getDay();
     // Get the day of the month
-    const dayOfMonth = date.getDate();
+    const dayOfMonth = selectedDate.getDate();
     // Get the month
-    const monthName = months[date.getMonth()];
+    const monthName = months[selectedDate.getMonth()];
     // Get the year
-    const year = date.getFullYear();
+    const year = selectedDate.getFullYear();
     const formattedDateString = `${getDayName(
       dayOfWeek
     )} ${monthName} ${dayOfMonth} ${year}`;
@@ -53,7 +53,8 @@ export default function DatePicker() {
   const onChange = (e, selectedDate) => {
     setShow(false);
     setDate(selectedDate);
-    convertDateToString();
+    convertDateToString(selectedDate);
+    onDateChange(selectedDate);
   };
 
   return (

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-export default function DropDownBox({ label }) {
+export default function DropDownBox({ label, value, setValue }) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState([]);
   const [items, setItems] = useState([
     { label: "Walking", value: "walking" },
     { label: "Running", value: "running" },
