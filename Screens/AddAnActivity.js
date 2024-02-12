@@ -5,12 +5,14 @@ import Input from "../Components/Input";
 import DatePicker from "../Components/DatePicker";
 import StyledButton from "../Components/StyledButton";
 import { EntriesContext } from "../App";
+import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
   const [activity, setActivity] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const { entries, setEntries } = useContext(EntriesContext);
+  const navigation = useNavigation(); // Access the navigation object using useNavigation hook
 
   const durationAlert = () =>
     Alert.alert(
@@ -65,6 +67,8 @@ export default function AddAnActivity() {
 
     if (!isActivityDateEmpty && isDurationValid) {
       updateEntries();
+      // Navigate back to the previous screen
+      navigation.goBack();
     }
   }
 
@@ -92,7 +96,11 @@ export default function AddAnActivity() {
       />
       <DatePicker onDateChange={handleDateChange} />
       <View style={styles.buttonsContainer}>
-        <StyledButton title={"Cancel"} color={"red"} />
+        <StyledButton
+          title={"Cancel"}
+          onPress={() => navigation.goBack()}
+          color={"red"}
+        />
         <View style={styles.buttonView}>
           <Button title="Save" onPress={validateInputs} color={"purple"} />
         </View>

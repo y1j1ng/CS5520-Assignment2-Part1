@@ -75,7 +75,11 @@ export default function App() {
               component={Start}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="AddAnActivity" component={AddAnActivity} />
+            <Stack.Screen
+              name="AddAnActivity"
+              component={AddAnActivity}
+              options={{ headerBackTitleVisible: false }}
+            />
             <Stack.Screen
               name="TabNavigator"
               component={TabNavigator}
