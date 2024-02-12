@@ -3,12 +3,9 @@ import React, { useState, useEffect } from "react";
 import Input from "../Components/Input";
 import StyledButton from "../Components/StyledButton";
 
-export default function Start({
-  email,
-  setEmail,
-  phoneNumber,
-  setPhoneNumber,
-}) {
+export default function Start({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState("");
   const [isEntered, setIsEntered] = useState(false);
@@ -30,7 +27,7 @@ export default function Start({
 
   function validateInputs() {
     // Validate name
-    const isEmailValid = email.length > 1;
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!isEmailValid) {
       setEmailError("Please enter a valid email address");
     }
@@ -43,12 +40,13 @@ export default function Start({
 
     // Check if both inputs are valid
     if (isEmailValid && isPhoneNumberValid) {
-      // confirmHandler();
-      console.log("valid inputs");
+      startHandler();
     }
   }
 
-  function startHandler() {}
+  function startHandler() {
+    navigation.navigate("AllActivities");
+  }
 
   function resetHandler() {
     setEmail("");
