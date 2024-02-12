@@ -11,14 +11,15 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <StatusBar style="auto" />
-      <Start
+      <StatusBar style="auto" />
+      {/* <Start
         email={email}
         setEmail={setEmail}
         phoneNumber={phoneNumber}
         setPhoneNumber={setPhoneNumber}
-      /> */}
-      <AddAnActivity />
+      />
+      <AddAnActivity /> */}
+      <AllActivities />
     </SafeAreaView>
   );
 }

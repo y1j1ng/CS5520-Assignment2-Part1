@@ -41,7 +41,7 @@ export default function AddAnActivity() {
   function validateInputs() {
     console.log(activity);
     console.log(selectedDate);
-    // Validate activity
+    // Validate activity and date
     if (activity.length === 0 || selectedDate == null) {
       emptySubmissionAlert();
     }
