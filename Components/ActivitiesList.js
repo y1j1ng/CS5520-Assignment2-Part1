@@ -3,8 +3,13 @@ import React, { useContext } from "react";
 import ActivityItem from "./ActivityItem";
 import { EntriesContext } from "../App";
 
-export default function ActivitiesList() {
+export default function ActivitiesList({ specialOnly }) {
   const { entries, setEntries } = useContext(EntriesContext);
+
+  // Filter entries based on specialOnly prop
+  const filteredEntries = specialOnly
+    ? entries.filter((entry) => entry.special)
+    : entries;
 
   const renderItem = ({ item }) => (
     <ActivityItem
@@ -18,7 +23,7 @@ export default function ActivitiesList() {
   return (
     <View>
       <FlatList
-        data={entries}
+        data={filteredEntries} // Use filtered entries based on specialOnly prop
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

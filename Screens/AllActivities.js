@@ -5,7 +5,7 @@ import ActivitiesList from "../Components/ActivitiesList";
 export default function AllActivities() {
   return (
     <View>
-      <ActivitiesList />
+      <ActivitiesList specialOnly={false} />
     </View>
   );
 }
