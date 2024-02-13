@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Button } from "react-native";
+import { SafeAreaView, StyleSheet, Button, View } from "react-native";
 import { createContext, useContext, useState } from "react";
 import Start from "./Screens/Start";
 import AllActivities from "./Screens/AllActivities";
@@ -83,7 +83,7 @@ export default function App() {
   const [entries, setEntries] = useState([]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar style="auto" />
       <EntriesContext.Provider value={{ entries, setEntries }}>
         <NavigationContainer>
@@ -120,7 +120,7 @@ export default function App() {
           </Stack.Navigator>
         </NavigationContainer>
       </EntriesContext.Provider>
-    </SafeAreaView>
+    </View>
   );
 }
 
