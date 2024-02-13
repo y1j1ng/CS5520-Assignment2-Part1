@@ -9,6 +9,7 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { Color } from "./Helpers/Color";
 
 export const EntriesContext = createContext(null);
 const Stack = createNativeStackNavigator();
@@ -22,39 +23,58 @@ function TabNavigator() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ size, color }) => {
           if (route.name === "All Activities") {
-            <FontAwesome name="dollar" size={size} color={color} />;
+            return <FontAwesome name="dollar" size={size} color={color} />;
           } else if (route.name === "Special Activities") {
             return <AntDesign name="exclamation" size={size} color={color} />;
           }
         },
         tabBarActiveTintColor: "gold",
         tabBarInactiveTintColor: "gray",
+        headerStyle: {
+          backgroundColor: Color.general,
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerRight: () => (
+          <Button
+            onPress={() => navigation.navigate("AddAnActivity")}
+            title="Add"
+            color="gold"
+          />
+        ),
       })}
+      tabBarOptions={{
+        tabBarStyle: { backgroundColor: Color.general },
+      }}
     >
       <Tab.Screen
         name="All Activities"
         component={AllActivities}
         options={{
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate("AddAnActivity")}
-              title="Add"
-              color="gold"
-            />
-          ),
+          headerTitle: "All Activities",
         }}
       />
       <Tab.Screen
         name="Special Activities"
         component={SpecialActivities}
         options={{
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate("AddAnActivity")}
-              title="Add"
-              color="gold"
-            />
-          ),
+          headerTitle: "All Activities",
+          // headerStyle: {
+          //   backgroundColor: Color.general,
+          // },
+          // headerTintColor: "#fff",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
+          // headerRight: () => (
+          //   <Button
+          //     onPress={() => navigation.navigate("AddAnActivity")}
+          //     title="Add"
+          //     color="gold"
+          //   />
+          // ),
         }}
       />
     </Tab.Navigator>
@@ -78,7 +98,17 @@ export default function App() {
             <Stack.Screen
               name="AddAnActivity"
               component={AddAnActivity}
-              options={{ headerBackTitleVisible: false }}
+              options={{
+                headerBackTitleVisible: false,
+                title: "Add An Activity",
+                headerStyle: {
+                  backgroundColor: Color.general,
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                },
+              }}
             />
             <Stack.Screen
               name="TabNavigator"
@@ -97,6 +127,6 @@ const styles = StyleSheet.create({
     flex: 1,
     //   alignItems: "center",
     //   justifyContent: "center",
-    backgroundColor: "lavender",
+    backgroundColor: Color.background,
   },
 });
