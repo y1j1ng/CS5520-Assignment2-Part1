@@ -87,7 +87,11 @@ export default function App() {
       <StatusBar style="auto" />
       <EntriesContext.Provider value={{ entries, setEntries }}>
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{
+              contentStyle: { backgroundColor: Color.background },
+            }}
+          >
             <Stack.Screen
               name="Start"
               component={Start}
@@ -126,5 +130,7 @@ const styles = StyleSheet.create({
     //   alignItems: "center",
     //   justifyContent: "center",
     backgroundColor: Color.background,
+    ...StyleSheet.absoluteFillObject,
+    height: null,
   },
 });

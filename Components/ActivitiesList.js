@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
 import ActivityItem from "./ActivityItem";
 import { EntriesContext } from "../App";
+import { Color } from "../Helpers/Color";
 
 export default function ActivitiesList({ specialOnly }) {
   const { entries, setEntries } = useContext(EntriesContext);
@@ -21,7 +22,7 @@ export default function ActivitiesList({ specialOnly }) {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={filteredEntries} // Use filtered entries based on specialOnly prop
         renderItem={renderItem}
@@ -31,4 +32,9 @@ export default function ActivitiesList({ specialOnly }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Color.background,
+  },
+});

@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 300,
+    marginTop: 500,
   },
   // buttonView: { margin: 5 },
 });
