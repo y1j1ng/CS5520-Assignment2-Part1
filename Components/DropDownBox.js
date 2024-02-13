@@ -25,6 +25,7 @@ export default function DropDownBox({ label, value, setValue }) {
         setValue={setValue}
         setItems={setItems}
         theme="LIGHT"
+        placeholder="Select An Activity"
       />
     </View>
   );
