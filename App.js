@@ -37,6 +37,7 @@ function TabNavigator() {
         headerTitleStyle: {
           fontWeight: "bold",
         },
+        tabBarStyle: { backgroundColor: Color.general },
         headerRight: () => (
           <Button
             onPress={() => navigation.navigate("AddAnActivity")}
@@ -45,9 +46,6 @@ function TabNavigator() {
           />
         ),
       })}
-      tabBarOptions={{
-        tabBarStyle: { backgroundColor: Color.general },
-      }}
     >
       <Tab.Screen
         name="All Activities"
