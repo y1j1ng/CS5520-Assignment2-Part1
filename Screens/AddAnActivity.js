@@ -85,20 +85,23 @@ export default function AddAnActivity() {
   }
 
   return (
-    <View>
-      <View style={styles.dropDownBox}>
-        <DropDownBox
-          label="Activity *"
-          value={activity}
-          setValue={setActivity}
+    <View style={styles.container}>
+      <View style={styles.inputsContainer}>
+        <View style={styles.dropDownBox}>
+          <DropDownBox
+            label="Activity *"
+            value={activity}
+            setValue={setActivity}
+          />
+        </View>
+        <Input
+          label="Duration (min) *"
+          value={duration}
+          onChangeText={changeDurationHandler}
         />
+        <DatePicker onDateChange={handleDateChange} />
       </View>
-      <Input
-        label="Duration (min) *"
-        value={duration}
-        onChangeText={changeDurationHandler}
-      />
-      <DatePicker onDateChange={handleDateChange} />
+
       <View style={styles.buttonsContainer}>
         <StyledButton
           title={"Cancel"}
@@ -115,17 +118,25 @@ export default function AddAnActivity() {
 
 const styles = StyleSheet.create({
   container: {
-    //   flex: 1,
+    flex: 1,
     //justifyContent: "center",
     //   alignItems: "center",
+    paddingTop: 20,
+  },
+  inputsContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+    marginBottom: 20,
   },
   dropDownBox: {
     zIndex: 1000,
+    marginBottom: 20,
   },
   buttonsContainer: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    margin: 10,
+    marginTop: 300,
   },
   // buttonView: { margin: 5 },
 });
