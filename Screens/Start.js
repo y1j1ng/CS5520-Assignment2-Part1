@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from "react";
 import Input from "../Components/Input";
 import StyledButton from "../Components/StyledButton";
+import { Color } from "../Helpers/Color";
 
 export default function Start({ navigation }) {
   const [email, setEmail] = useState("");
@@ -89,8 +90,9 @@ export default function Start({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    //   flex: 1,
-    //justifyContent: "center",
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: Color.background,
     //   alignItems: "center",
   },
   buttonsContainer: {
