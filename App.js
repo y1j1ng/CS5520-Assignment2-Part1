@@ -58,7 +58,7 @@ function TabNavigator() {
         name="Special Activities"
         component={SpecialActivities}
         options={{
-          headerTitle: "All Activities",
+          headerTitle: "Special Activities",
           // headerStyle: {
           //   backgroundColor: Color.general,
           // },
