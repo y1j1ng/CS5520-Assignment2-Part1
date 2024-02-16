@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
 import ActivityItem from "./ActivityItem";
-import { EntriesContext } from "../App";
+import { EntriesContext } from "./EntriesContext";
 import { Color } from "../Helpers/Color";
 
 export default function ActivitiesList({ specialOnly }) {

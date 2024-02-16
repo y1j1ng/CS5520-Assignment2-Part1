@@ -4,8 +4,8 @@ import DropDownBox from "../Components/DropDownBox";
 import Input from "../Components/Input";
 import DatePicker from "../Components/DatePicker";
 import StyledButton from "../Components/StyledButton";
-import { EntriesContext } from "../App";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
+import { EntriesContext } from "../Components/EntriesContext";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
