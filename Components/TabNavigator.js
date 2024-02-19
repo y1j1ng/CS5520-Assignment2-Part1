@@ -6,6 +6,7 @@ import { Color } from "../Helpers/Color";
 import AllActivities from "../Screens/AllActivities";
 import SpecialActivities from "../Screens/SpecialActivities";
 import { Button } from "react-native";
+import PressableButton from "./PressableButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,11 +34,14 @@ export default function TabNavigator() {
         },
         tabBarStyle: { backgroundColor: Color.general },
         headerRight: () => (
-          <Button
-            onPress={() => navigation.navigate("AddAnActivity")}
-            title="Add"
-            color="gold"
-          />
+          <PressableButton onPress={() => navigation.navigate("AddAnActivity")}>
+            <AntDesign name="plus" size={20} color="white" />
+          </PressableButton>
+          // <Button
+          //   onPress={() => navigation.navigate("AddAnActivity")}
+          //   title="+"
+          //   color="white"
+          // />
         ),
       })}
     >

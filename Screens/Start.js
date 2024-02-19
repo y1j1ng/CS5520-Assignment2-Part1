@@ -76,15 +76,15 @@ export default function Start({ navigation }) {
 
       <View style={styles.buttonsContainer}>
         <PressableButton backgroundColor="red" onPress={resetHandler}>
-          <Text>Reset</Text>
+          <Text style={styles.buttonText}>Reset</Text>
         </PressableButton>
         {/* <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} /> */}
         <View style={styles.buttonView}>
           <PressableButton
-            backgroundColor={isEntered ? undefined : "grey"}
+            backgroundColor={isEntered ? Color.general : "grey"}
             onPress={validateInputs}
           >
-            <Text>Start</Text>
+            <Text style={styles.buttonText}>Start</Text>
           </PressableButton>
           {/* <Button
             title="Start"
@@ -111,4 +111,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   // buttonView: { margin: 5 },
+  buttonText: {
+    fontSize: 18,
+    color: "white",
+  },
 });

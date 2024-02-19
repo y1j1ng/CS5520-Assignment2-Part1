@@ -3,7 +3,7 @@ import React from "react";
 import { Color } from "../Helpers/Color";
 
 export default function PressableButton({
-  backgroundColor = Color.general,
+  backgroundColor,
   onPress,
   children,
 }) {
@@ -12,7 +12,7 @@ export default function PressableButton({
       style={[styles.defaultStyle, { backgroundColor }]}
       onPress={onPress}
     >
-      <Text style={styles.defaultText}>{children}</Text>
+      {children}
     </Pressable>
   );
 }
@@ -25,9 +25,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
-  },
-  defaultText: {
-    fontSize: 18,
-    color: "white",
   },
 });
