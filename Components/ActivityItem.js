@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { convertDateToString } from "../Helpers/Helper";
+import { Color } from "../Helpers/Color";
 
 export default function ActivityItem({ activity, duration, date, special }) {
   return (
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     fontWeight: "bold",
-    color: "#483285",
+    color: Color.general,
     backgroundColor: "white",
     padding: 5,
     borderRadius: 10,
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   },
   container: {
     borderRadius: 10,
-    backgroundColor: "#483285",
+    backgroundColor: Color.general,
     margin: 15,
     flexDirection: "row",
     alignItems: "center",
