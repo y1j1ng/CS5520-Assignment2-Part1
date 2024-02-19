@@ -9,7 +9,11 @@ export default function DatePicker({ onDateChange }) {
   const [show, setShow] = useState(false);
 
   function onPressInHandler() {
-    setShow(true);
+    setShow(!show); // Toggle the visibility of the DateTimePicker
+    if (!show) {
+      setDate(new Date());
+    }
+    onDateChange(date);
   }
 
   const onChange = (e, selectedDate) => {
@@ -28,7 +32,7 @@ export default function DatePicker({ onDateChange }) {
       />
       {show && (
         <DateTimePicker
-          value={date || new Date()} // Pass null or current date to DateTimePicker
+          value={date}
           mode="date"
           display="inline"
           onChange={onChange}
@@ -37,5 +41,3 @@ export default function DatePicker({ onDateChange }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     paddingHorizontal: 15,
-    paddingBottom: 35, // Add paddingBottom for additional space if needed
+    paddingBottom: 35,
   },
   selectContainer: {
     zIndex: 1000,
