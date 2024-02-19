@@ -88,11 +88,7 @@ export default function AddAnActivity() {
     <View style={styles.container}>
       <View style={styles.inputsContainer}>
         <View style={styles.dropDownBox}>
-          <DropDownBox
-            label="Activity *"
-            value={activity}
-            setValue={setActivity}
-          />
+          <DropDownBox label="Activity *" setValue={setActivity} />
         </View>
         <Input
           label="Duration (min) *"
