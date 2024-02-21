@@ -4,7 +4,7 @@ import ActivityItem from "./ActivityItem";
 import { EntriesContext } from "./EntriesContext";
 import { Color } from "../Helpers/Color";
 
-export default function ActivitiesList({ specialOnly }) {
+export default function ActivitiesList({ specialOnly, navigation }) {
   const { entries, setEntries } = useContext(EntriesContext);
 
   // Filter entries based on specialOnly prop
@@ -18,6 +18,7 @@ export default function ActivitiesList({ specialOnly }) {
       duration={item.duration}
       date={item.date}
       special={item.special}
+      navigation={navigation}
     />
   );
 

@@ -4,6 +4,8 @@ import TabNavigator from "../Components/TabNavigator";
 import Start from "../Screens/Start";
 import AddAnActivity from "../Screens/AddAnActivity";
 import { Color } from "../Helpers/Color";
+import PressableButton from "./PressableButton";
+import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +40,28 @@ export default function StackNavigator() {
         name="TabNavigator"
         component={TabNavigator}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Edit"
+        component={AddAnActivity}
+        options={{
+          headerBackTitleVisible: false,
+          title: "Edit",
+          headerStyle: {
+            backgroundColor: Color.general,
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerRight: () => (
+            <PressableButton
+            // onPress={() => navigation.navigate("AddAnActivity")}
+            >
+              <Ionicons name="trash" size={20} color="white" />
+            </PressableButton>
+          ),
+        }}
       />
     </Stack.Navigator>
   );

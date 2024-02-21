@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { Color } from "../Helpers/Color";
@@ -10,8 +10,8 @@ import PressableButton from "./PressableButton";
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNavigator() {
-  const navigation = useNavigation();
+export default function TabNavigator({ navigation }) {
+  // const navigation = useNavigation();
 
   return (
     <Tab.Navigator

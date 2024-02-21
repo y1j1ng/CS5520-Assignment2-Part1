@@ -3,10 +3,10 @@ import React from "react";
 import ActivitiesList from "../Components/ActivitiesList";
 import { Color } from "../Helpers/Color";
 
-export default function SpecialActivities() {
+export default function SpecialActivities({ navigation }) {
   return (
     <View style={styles.container}>
-      <ActivitiesList specialOnly={true} />
+      <ActivitiesList specialOnly={true} navigation={navigation} />
     </View>
   );
 }
