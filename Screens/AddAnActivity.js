@@ -6,6 +6,8 @@ import DatePicker from "../Components/DatePicker";
 import StyledButton from "../Components/StyledButton";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 import { EntriesContext } from "../Components/EntriesContext";
+import PressableButton from "../Components/PressableButton";
+import { Color, buttonText } from "../Helpers/Color";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
@@ -99,14 +101,26 @@ export default function AddAnActivity() {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <StyledButton
+        <PressableButton
+          backgroundColor="red"
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={buttonText}>Cancel</Text>
+        </PressableButton>
+        <PressableButton
+          backgroundColor={Color.general}
+          onPress={validateInputs}
+        >
+          <Text style={buttonText}>Save</Text>
+        </PressableButton>
+        {/* <StyledButton
           title={"Cancel"}
           onPress={() => navigation.goBack()}
           color={"red"}
         />
         <View style={styles.buttonView}>
           <Button title="Save" onPress={validateInputs} color={"purple"} />
-        </View>
+        </View> */}
       </View>
     </View>
   );

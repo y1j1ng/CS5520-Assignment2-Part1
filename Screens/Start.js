@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from "react";
 import Input from "../Components/Input";
 import StyledButton from "../Components/StyledButton";
-import { Color } from "../Helpers/Color";
+import { Color, buttonText } from "../Helpers/Color";
 import PressableButton from "../Components/PressableButton";
 
 export default function Start({ navigation }) {
@@ -76,7 +76,7 @@ export default function Start({ navigation }) {
 
       <View style={styles.buttonsContainer}>
         <PressableButton backgroundColor="red" onPress={resetHandler}>
-          <Text style={styles.buttonText}>Reset</Text>
+          <Text style={buttonText}>Reset</Text>
         </PressableButton>
         {/* <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} /> */}
         <View style={styles.buttonView}>
@@ -84,7 +84,7 @@ export default function Start({ navigation }) {
             backgroundColor={isEntered ? Color.general : "grey"}
             onPress={validateInputs}
           >
-            <Text style={styles.buttonText}>Start</Text>
+            <Text style={buttonText}>Start</Text>
           </PressableButton>
           {/* <Button
             title="Start"
@@ -111,8 +111,4 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   // buttonView: { margin: 5 },
-  buttonText: {
-    fontSize: 18,
-    color: "white",
-  },
 });
