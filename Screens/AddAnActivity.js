@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native"; // Import the useNavig
 import { EntriesContext } from "../Components/EntriesContext";
 import PressableButton from "../Components/PressableButton";
 import { Color, buttonText } from "../Helpers/Color";
+import { db } from "../firebase-files/firebaseSetup";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
