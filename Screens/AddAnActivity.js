@@ -9,12 +9,13 @@ import { EntriesContext } from "../Components/EntriesContext";
 import PressableButton from "../Components/PressableButton";
 import { Color, buttonText } from "../Helpers/Color";
 import { db } from "../firebase-files/firebaseSetup";
+import { writeToDB } from "../firebase-files/firestoreHelper";
 
 export default function AddAnActivity() {
   const [duration, setDuration] = useState("");
   const [activity, setActivity] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-  const { entries, setEntries } = useContext(EntriesContext);
+  // const { entries, setEntries } = useContext(EntriesContext);
   const navigation = useNavigation(); // Access the navigation object using useNavigation hook
 
   const durationAlert = () =>
@@ -50,13 +51,14 @@ export default function AddAnActivity() {
       (activity === "Running" || activity === "Weights") &&
       parseInt(duration) > 60;
     const newEntry = {
-      id: Math.random(),
+      // id: Math.random(),
       activity: activity,
       duration: parseInt(duration),
       date: selectedDate,
       special: isSpecial, // Add special flag
     };
-    setEntries(() => [...entries, newEntry]);
+    writeToDB(newEntry);
+    // setEntries(() => [...entries, newEntry]);
   }
 
   function validateInputs() {
