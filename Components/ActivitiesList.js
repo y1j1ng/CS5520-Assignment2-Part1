@@ -21,14 +21,11 @@ export default function ActivitiesList({ specialOnly, navigation }) {
       querySnapshot.forEach((doc) => {
         // update this to also add id of doc to the newArray
         newArray.push({ ...doc.data(), id: doc.id });
-        console.log(doc.data().date);
         // store this data in a new array
       });
       // console.log(newArray);
       // updating the activities array with the new array
-      console.log(newArray);
       setEntries(newArray);
-      console.log(entries);
     });
   }, []);
 

@@ -26,7 +26,7 @@ export default function ActivityItem({
               />
             </View>
           )}
-          <Text style={styles.boxText}>{convertDateToString(date)}</Text>
+          <Text style={styles.boxText}>{date.toDate().toDateString()}</Text>
           <Text style={styles.boxText}>{duration} min</Text>
         </View>
       </View>
