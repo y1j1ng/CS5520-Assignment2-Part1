@@ -9,7 +9,7 @@ import { EntriesContext } from "../Components/EntriesContext";
 import PressableButton from "../Components/PressableButton";
 import { Color, buttonText } from "../Helpers/Color";
 import { db } from "../firebase-files/firebaseSetup";
-import { readFromDB, writeToDB } from "../firebase-files/firestoreHelper";
+import { writeToDB } from "../firebase-files/firestoreHelper";
 import Checkbox from "expo-checkbox";
 import { collection, addDoc, doc, deleteDoc, getDoc } from "firebase/firestore";
 

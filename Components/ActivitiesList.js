@@ -31,8 +31,6 @@ export default function ActivitiesList({ specialOnly, navigation }) {
 
   const [entries, setEntries] = useState([]);
 
-  // const entries = readFromDB();
-
   // Filter entries based on specialOnly prop
   const filteredEntries = specialOnly
     ? entries.filter((entry) => entry.special)
