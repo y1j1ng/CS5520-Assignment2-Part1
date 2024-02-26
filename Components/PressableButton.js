@@ -9,8 +9,15 @@ export default function PressableButton({
 }) {
   return (
     <Pressable
-      style={[styles.defaultStyle, { backgroundColor }]}
+      // style={[styles.defaultStyle, { backgroundColor }]}
+      style={({ pressed }) => [
+        styles.defaultStyle,
+        {
+          backgroundColor: pressed ? "white" : backgroundColor,
+        },
+      ]}
       onPress={onPress}
+      android_ripple={{ color: "white" }}
     >
       {children}
     </Pressable>
