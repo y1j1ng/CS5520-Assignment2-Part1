@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "purple",
+    color: Color.general,
     margin: 5,
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "purple",
     borderWidth: 2,
-    borderColor: "purple",
+    borderColor: Color.general,
     borderRadius: 5,
     padding: 10,
     margin: 5,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { SelectList } from "react-native-dropdown-select-list";
+import { Color } from "../Helpers/Color";
 
 export default function DropDownBox({ label, setValue }) {
   // const [open, setOpen] = useState(false);
@@ -51,12 +52,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   drowdownText: {
-    color: "purple",
+    color: Color.general,
   },
   label: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "purple",
+    color: Color.general,
     marginTop: 5,
     marginBottom: 10,
   },

@@ -6,6 +6,7 @@ import AddAnActivity from "../Screens/AddAnActivity";
 import { Color } from "../Helpers/Color";
 import PressableButton from "./PressableButton";
 import { Ionicons } from "@expo/vector-icons";
+import Edit from "../Screens/Edit";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +44,7 @@ export default function StackNavigator() {
       />
       <Stack.Screen
         name="Edit"
-        component={AddAnActivity}
+        component={Edit}
         options={{
           headerBackTitleVisible: false,
           title: "Edit",

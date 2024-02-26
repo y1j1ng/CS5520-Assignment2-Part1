@@ -10,11 +10,13 @@ import PressableButton from "../Components/PressableButton";
 import { Color, buttonText } from "../Helpers/Color";
 import { db } from "../firebase-files/firebaseSetup";
 import { writeToDB } from "../firebase-files/firestoreHelper";
+import Checkbox from "expo-checkbox";
 
-export default function AddAnActivity() {
+export default function AddAnActivity(isEdit) {
   const [duration, setDuration] = useState("");
   const [activity, setActivity] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isChecked, setChecked] = useState(false);
   // const { entries, setEntries } = useContext(EntriesContext);
   const navigation = useNavigation(); // Access the navigation object using useNavigation hook
 
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: "center",
     //   alignItems: "center",
-    paddingTop: 20,
+    paddingTop: 30,
   },
   inputsContainer: {
     flex: 1,
