@@ -4,7 +4,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { SelectList } from "react-native-dropdown-select-list";
 import { Color } from "../Helpers/Color";
 
-export default function DropDownBox({ label, setValue }) {
+export default function DropDownBox({ label, setValue, placeholder }) {
   // const [open, setOpen] = useState(false);
   const items = [
     { key: "Walking", value: "Walking" },
@@ -25,7 +25,7 @@ export default function DropDownBox({ label, setValue }) {
           data={items}
           save="value"
           search={false}
-          placeholder="Select An Activity"
+          placeholder={placeholder}
           dropdownStyles={styles.dropdown}
           inputStyles={styles.drowdownText}
           dropdownTextStyles={styles.drowdownText}

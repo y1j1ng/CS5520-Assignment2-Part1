@@ -19,7 +19,7 @@ export default function DatePicker({ onDateChange }) {
   const onChange = (e, selectedDate) => {
     setShow(false);
     setDate(selectedDate);
-    convertDateToString(selectedDate);
+    selectedDate.toDateString();
     onDateChange(selectedDate);
   };
 
@@ -27,7 +27,7 @@ export default function DatePicker({ onDateChange }) {
     <View>
       <Input
         label="Date *"
-        value={date ? convertDateToString(date) : ""} // Use conditional rendering to show the date string if date is not null
+        value={date ? date.toDateString() : ""} // Use conditional rendering to show the date string if date is not null
         onPressIn={onPressInHandler}
       />
       {show && (

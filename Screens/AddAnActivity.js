@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import DropDownBox from "../Components/DropDownBox";
 import Input from "../Components/Input";
 import DatePicker from "../Components/DatePicker";
@@ -9,10 +9,35 @@ import { EntriesContext } from "../Components/EntriesContext";
 import PressableButton from "../Components/PressableButton";
 import { Color, buttonText } from "../Helpers/Color";
 import { db } from "../firebase-files/firebaseSetup";
-import { writeToDB } from "../firebase-files/firestoreHelper";
+import { readFromDB, writeToDB } from "../firebase-files/firestoreHelper";
 import Checkbox from "expo-checkbox";
+import { collection, addDoc, doc, deleteDoc, getDoc } from "firebase/firestore";
 
-export default function AddAnActivity(isEdit) {
+export default function AddAnActivity({ isEdit, id }) {
+  useEffect(() => {
+    if (isEdit) {
+      const fetchActivity = async () => {
+        try {
+          console.log(id);
+          const docRef = doc(db, "activities", id);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            setActivity(data.activity);
+            setDuration(data.duration.toString());
+            setSelectedDate(data.date.toDate());
+            // setSpecial(activityData.special);
+          } else {
+            console.log("No such document!");
+          }
+        } catch (err) {
+          console.error("Error getting document:", err);
+        }
+      };
+      fetchActivity();
+    }
+  }, [isEdit, id]);
+
   const [duration, setDuration] = useState("");
   const [activity, setActivity] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -95,7 +120,11 @@ export default function AddAnActivity(isEdit) {
     <View style={styles.container}>
       <View style={styles.inputsContainer}>
         <View style={styles.dropDownBox}>
-          <DropDownBox label="Activity *" setValue={setActivity} />
+          <DropDownBox
+            label="Activity *"
+            setValue={setActivity}
+            placeholder={isEdit ? activity : "Select An Activity"}
+          />
         </View>
         <Input
           label="Duration (min) *"

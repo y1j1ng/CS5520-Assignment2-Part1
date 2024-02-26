@@ -40,6 +40,7 @@ export default function ActivitiesList({ specialOnly, navigation }) {
 
   const renderItem = ({ item }) => (
     <ActivityItem
+      id={item.id}
       activity={item.activity}
       duration={item.duration}
       date={item.date}

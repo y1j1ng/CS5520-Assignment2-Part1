@@ -4,6 +4,7 @@ import { convertDateToString } from "../Helpers/Helper";
 import { Color } from "../Helpers/Color";
 
 export default function ActivityItem({
+  id,
   activity,
   duration,
   date,
@@ -11,7 +12,7 @@ export default function ActivityItem({
   navigation,
 }) {
   function onPress() {
-    navigation.navigate("Edit");
+    navigation.navigate("Edit", { id: id });
   }
   return (
     <Pressable onPress={onPress}>
