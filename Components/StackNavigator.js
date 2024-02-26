@@ -5,6 +5,7 @@ import Start from "../Screens/Start";
 import AddAnActivity from "../Screens/AddAnActivity";
 import { Color } from "../Helpers/Color";
 import PressableButton from "./PressableButton";
+import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Edit from "../Screens/Edit";
 import { deleteFromDB } from "../firebase-files/firestoreHelper";
@@ -80,11 +81,12 @@ export default function StackNavigator() {
             fontWeight: "bold",
           },
           headerRight: () => (
-            <PressableButton
+            <Pressable
               onPress={() => deleteHandler(route.params.id, navigation)}
+              style={{ margin: 10 }}
             >
               <Ionicons name="trash" size={20} color="white" />
-            </PressableButton>
+            </Pressable>
           ),
         })}
         // options={{
