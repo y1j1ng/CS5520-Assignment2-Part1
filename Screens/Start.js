@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from "react";
 import Input from "../Components/Input";
 import StyledButton from "../Components/StyledButton";
-import { Color } from "../Helpers/Color";
+import { Color, buttonText } from "../Helpers/Color";
+import PressableButton from "../Components/PressableButton";
 
 export default function Start({ navigation }) {
   const [email, setEmail] = useState("");
@@ -74,14 +75,23 @@ export default function Start({ navigation }) {
       />
 
       <View style={styles.buttonsContainer}>
-        <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} />
+        <PressableButton backgroundColor="red" onPress={resetHandler}>
+          <Text style={buttonText}>Reset</Text>
+        </PressableButton>
+        {/* <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} /> */}
         <View style={styles.buttonView}>
-          <Button
+          <PressableButton
+            backgroundColor={isEntered ? Color.general : "grey"}
+            onPress={validateInputs}
+          >
+            <Text style={buttonText}>Start</Text>
+          </PressableButton>
+          {/* <Button
             title="Start"
             onPress={validateInputs}
             color={isEntered ? "purple" : "white"}
             disabled={!isEntered}
-          />
+          /> */}
         </View>
       </View>
     </View>

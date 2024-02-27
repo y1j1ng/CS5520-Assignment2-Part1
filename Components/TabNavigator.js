@@ -1,16 +1,18 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { Color } from "../Helpers/Color";
 import AllActivities from "../Screens/AllActivities";
 import SpecialActivities from "../Screens/SpecialActivities";
 import { Button } from "react-native";
+import PressableButton from "./PressableButton";
+import { Pressable } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNavigator() {
-  const navigation = useNavigation();
+export default function TabNavigator({ navigation }) {
+  // const navigation = useNavigation();
 
   return (
     <Tab.Navigator
@@ -33,11 +35,17 @@ export default function TabNavigator() {
         },
         tabBarStyle: { backgroundColor: Color.general },
         headerRight: () => (
-          <Button
+          <Pressable
             onPress={() => navigation.navigate("AddAnActivity")}
-            title="Add"
-            color="gold"
-          />
+            style={{ margin: 10 }}
+          >
+            <AntDesign name="plus" size={20} color="white" />
+          </Pressable>
+          // <Button
+          //   onPress={() => navigation.navigate("AddAnActivity")}
+          //   title="+"
+          //   color="white"
+          // />
         ),
       })}
     >

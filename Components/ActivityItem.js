@@ -1,25 +1,37 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { convertDateToString } from "../Helpers/Helper";
 import { Color } from "../Helpers/Color";
 
-export default function ActivityItem({ activity, duration, date, special }) {
+export default function ActivityItem({
+  id,
+  activity,
+  duration,
+  date,
+  special,
+  navigation,
+}) {
+  function onPress() {
+    navigation.navigate("Edit", { id: id });
+  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.activity}>{activity}</Text>
-      <View style={styles.rightSection}>
-        {special && (
-          <View style={styles.imageView}>
-            <Image
-              source={require("../assets/warning.png")}
-              style={styles.image}
-            />
-          </View>
-        )}
-        <Text style={styles.boxText}>{convertDateToString(date)}</Text>
-        <Text style={styles.boxText}>{duration} min</Text>
+    <Pressable onPress={onPress}>
+      <View style={styles.container}>
+        <Text style={styles.activity}>{activity}</Text>
+        <View style={styles.rightSection}>
+          {special && (
+            <View style={styles.imageView}>
+              <Image
+                source={require("../assets/warning.png")}
+                style={styles.image}
+              />
+            </View>
+          )}
+          <Text style={styles.boxText}>{date.toDate().toDateString()}</Text>
+          <Text style={styles.boxText}>{duration} min</Text>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
