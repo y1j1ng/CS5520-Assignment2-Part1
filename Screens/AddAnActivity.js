@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   inputsContainer: {
-    flex: 3 / 5,
+    flex: 4 / 5,
     paddingHorizontal: 20,
     marginBottom: 20,
   },
@@ -236,7 +236,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    // marginTop: 500,
   },
   downside: {
     flex: 1 / 5,
