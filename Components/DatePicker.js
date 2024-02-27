@@ -4,7 +4,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import Input from "./Input";
 import { convertDateToString } from "../Helpers/Helper";
 
-export default function DatePicker({ onDateChange }) {
+export default function DatePicker({ onDateChange, savedDate }) {
   const [date, setDate] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -27,7 +27,9 @@ export default function DatePicker({ onDateChange }) {
     <View>
       <Input
         label="Date *"
-        value={date ? date.toDateString() : ""} // Use conditional rendering to show the date string if date is not null
+        value={
+          date ? date.toDateString() : savedDate ? savedDate.toDateString() : ""
+        } // Use conditional rendering to show the date string if date is not null
         onPressIn={onPressInHandler}
       />
       {show && (

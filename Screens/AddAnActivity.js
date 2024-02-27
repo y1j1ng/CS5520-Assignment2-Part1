@@ -180,7 +180,7 @@ export default function AddAnActivity({ isEdit, id }) {
           value={duration}
           onChangeText={changeDurationHandler}
         />
-        <DatePicker onDateChange={handleDateChange} />
+        <DatePicker onDateChange={handleDateChange} savedDate={selectedDate} />
       </View>
 
       <View style={styles.downside}>
