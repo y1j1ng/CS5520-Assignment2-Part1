@@ -243,16 +243,19 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   checkboxContainer: {
+    alignItems: "center",
+    justifyContent: "space-around",
     flexDirection: "row",
     marginHorizontal: 15,
     marginBottom: 20,
   },
   checkbox: {
-    margin: 5,
+    marginHorizontal: 5,
   },
   text: {
     color: Color.general,
     fontWeight: "bold",
-    margin: 5,
+    // margin: 5,
+    width: "90%",
   },
 });
